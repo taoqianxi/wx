@@ -1,36 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/demo/demo",
-    "pages/demo1/demo1"
+    "pages/registered/registered",
+    "pages/logs/logs"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "幼儿招生系统",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#000",
-    "selectedColor": "#3f8cec",
-    "backgroundColor": "#fff",
-    "borderStyle": "white",
-    "list": [{
-      "pagePath": "pages/demo/demo",
-      "text": "32",
-      "iconPath": "icon/1.jpg",
-      "selectedIconPath": "icon/2.jpg"
-    },
-    {
-      "pagePath": "pages/demo1/demo1",
-      "text": "t3232ext",
-      "iconPath": "icon/2.jpg",
-      "selectedIconPath": "icon/1.jpg"
-    }]
-  }
-  ,
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
+

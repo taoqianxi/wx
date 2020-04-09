@@ -1,0 +1,10 @@
+<!--pages/registered/registered.wxml-->
+<i-panel title="基础用法">
+    <i-input value="" title="用户名" placeholder="用户名" />
+    <i-input value="" type="password" title="密码" placeholder="请输入密码" />
+    <i-input value="" type="password" title="确认密码" placeholder="请确认密码"/>
+</i-panel>
+
+<i-button bind:click="handleClick" shape="circle" type="info">
+  <view class="login-button-text">注册</view>
+</i-button>

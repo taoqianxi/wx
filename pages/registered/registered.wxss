@@ -1,0 +1,5 @@
+/* pages/registered/registered.wxss */
+
+.login-button-text{
+  line-height: 26px
+}

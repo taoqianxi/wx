@@ -22,7 +22,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"bundle": false
+		"bundle": false,
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
@@ -62,6 +63,13 @@
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/registered/registered",
+					"pathName": "pages/registered/registered",
 					"scene": null
 				}
 			]

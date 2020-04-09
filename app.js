@@ -1,5 +1,12 @@
 //app.js
 App({
+  globalData: {
+    userInfo: null,
+    addText: '玩命加载中...',
+    endText: '—————  我也是有底线的  —————',
+    sid: '',
+  }
+  ,
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
