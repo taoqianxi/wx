@@ -1,10 +1,21 @@
 <!--pages/registered/registered.wxml-->
-<i-panel title="基础用法">
-    <i-input value="" title="用户名" placeholder="用户名" />
-    <i-input value="" type="password" title="密码" placeholder="请输入密码" />
-    <i-input value="" type="password" title="确认密码" placeholder="请确认密码"/>
-</i-panel>
-
-<i-button bind:click="handleClick" shape="circle" type="info">
-  <view class="login-button-text">注册</view>
-</i-button>
+<form  bindsubmit="formSubmit">
+  <i-panel>
+      <i-input value="" name="userName" title="用户名" placeholder="用户名" maxlength="15"/>
+      <i-input value="" name="password" type="password" title="密码" placeholder="请输入密码" maxlength="15"/>
+      <i-input value="" name="oldPassword" type="password" title="确认密码" placeholder="请确认密码" maxlength="15"/>
+      <i-input value="" name="phone" title="手机号码" placeholder="手机号码" maxlength="11" />
+      <view style="display: block;">
+        <radio-group name="sex">
+          <radio checked="true" value="1">男</radio> <radio value="2">女</radio>
+        </radio-group>
+      </view>
+  </i-panel>
+  <button type="primary" form-type="submit">
+      注册
+  </button>
+  <!-- <i-button bind:click="323243" shape="circle" form-type="submit" type="info">
+      <view class="login-button-text">注册</view>
+  </i-button> -->
+</form>
+ <i-toast id="toast" />

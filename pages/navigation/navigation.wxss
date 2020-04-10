@@ -1,0 +1,4 @@
+/* pages/navigation/navigation.wxss */
+.brush-class activity-class homepage-class{
+  color: aquamarine;
+}

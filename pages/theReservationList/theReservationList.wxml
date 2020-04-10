@@ -1,0 +1,9 @@
+<!--pages/theReservationList/theReservationList.wxml-->
+<text>pages/theReservationList/theReservationList.wxml</text>
+
+
+ <i-tab-bar current="{{current}}" color="#f759ab" fixed="true"  bindchange="handleChange" >
+      <i-tab-bar-item  key="tosignup" icon="brush" size="45" current-icon="brush_fill" title="报名"></i-tab-bar-item>
+      <i-tab-bar-item  key="theReservationList" icon="activity"  size="45" current-icon="activity_fill" title="预约列表"></i-tab-bar-item>
+      <i-tab-bar-item   key="classInfo" icon="homepage"  size="45" current-icon="homepage_fill" title="分班信息"></i-tab-bar-item>
+  </i-tab-bar>

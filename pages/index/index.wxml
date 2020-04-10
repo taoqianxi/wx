@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view><image style="width: 400px;height:200px;" src="/icon/index.jpg" mode="widthFix"></image></view>
 <i-panel title="基础用法">
-    <i-input value="" title="用户名" autofocus placeholder="用户名" />
-    <i-input value="" type="password" title="密码" placeholder="请输入密码" />
+    <i-input value="" title="用户名" autofocus placeholder="用户名" maxlength="20"/>
+    <i-input value="" type="password" title="密码" placeholder="请输入密码" maxlength="20" />
 </i-panel>
 
-<i-button class="" type="primary" bind:click="handleDefault" shape="circle" size="small">
+<i-button class="" type="primary" bindclick="userLogin" shape="circle" size="small">
           <view class="login-button-text">登录</view>
 </i-button>
 

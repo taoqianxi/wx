@@ -2,12 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/registered/registered",
+    "pages/navigation/navigation",
+    "pages/tosignup/tosignup",
+    "pages/theReservationList/theReservationList",
+    "pages/classInfo/classInfo",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "幼儿招生系统",
+    "navigationBarTitleText": "幼儿园招生报名系统",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

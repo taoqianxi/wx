@@ -1,45 +1,17 @@
-// pages/registered/registered.js
-const { $Toast } = require('../../dist/base/index');
+// pages/demo1/demo1.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+   
   },
-  /*
-   表单提交
-  */
-  formSubmit: function (e) {
-    var value = e.detail.value;
-    let b = false;
-    if (value.userName == '' || value.password == '' || value.oldPassword == '' || value.phone == '') {
-      b = true;
-    }
-    if (b) {
-      $Toast({
-        content: '所有都需要填写',
-        type: 'warning'
-      });
-      return;
-    }
-    if ( value.password != value.oldPassword) {
-      $Toast({
-        content: '确认密码不一致!',
-        type: 'warning'
-      });
-      return;
-    }
-    
-    console.log('form发生了submit事件，携带数据为：', value)
 
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**
@@ -89,5 +61,8 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  userLogin : function(){
+    console.log("用户登录!!")
   }
 })

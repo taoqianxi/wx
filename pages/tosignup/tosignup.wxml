@@ -1,0 +1,35 @@
+<!--pages/tosignup/tosignup.wxml-->
+<!--pages/registered/registered.wxml-->
+<form  bindsubmit="formSubmit">
+  <i-panel>
+      <i-input value="" name="userName" title="幼儿姓名" placeholder="幼儿姓名" maxlength="15"/>
+    <view class="section" >
+         <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
+            <view class="picker">
+              <i-input value="{{date}}"  name="birthday" disabled title="出生日期" placeholder="出生日期" maxlength="15"/>
+            </view>
+         </picker>
+      </view>
+      <i-input value="" name="tName" title="监护人姓名" placeholder="监护人姓名" maxlength="11" />
+      <i-input value="" name="relation" title="与幼儿关系" placeholder="与幼儿关系" maxlength="11" />
+      <i-input value="" name="phone" type="number" title="联系电话" placeholder="联系电话" maxlength="11" />
+      <view style="display: block;">
+        <radio-group name="sex">
+          <radio checked="true" value="1">男</radio> <radio value="2">女</radio>
+        </radio-group>
+      </view>
+  </i-panel>
+  <button type="primary" form-type="submit">
+      提交
+  </button>
+  <!-- <i-button bind:click="323243" shape="circle" form-type="submit" type="info">
+      <view class="login-button-text">注册</view>
+  </i-button> -->
+</form>
+ <i-toast id="toast" />
+
+   <i-tab-bar current="{{current}}" color="#f759ab" fixed="true"  bindchange="handleChange" >
+      <i-tab-bar-item  key="tosignup" icon="brush" size="45" current-icon="brush_fill" title="报名"></i-tab-bar-item>
+      <i-tab-bar-item  key="theReservationList" icon="activity"  size="45" current-icon="activity_fill" title="预约列表"></i-tab-bar-item>
+      <i-tab-bar-item   key="classInfo" icon="homepage"  size="45" current-icon="homepage_fill" title="分班信息"></i-tab-bar-item>
+  </i-tab-bar>
