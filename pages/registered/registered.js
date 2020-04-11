@@ -31,7 +31,20 @@ Page({
       });
       return;
     }
-    
+    if (value.userName.length < 6 || value.password.length < 6 || value.oldPassword.length < 6) {
+      $Toast({
+        content: '用户名 密码 请都大于6位!',
+        type: 'warning'
+      });
+      return;
+    }
+    if (value.phone.length != 11) {
+      $Toast({
+        content: '请输入正确的电话号码!',
+        type: 'warning'
+      });
+      return;
+    }
     console.log('form发生了submit事件，携带数据为：', value)
 
   },

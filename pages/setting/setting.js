@@ -27,6 +27,22 @@ Page({
       passwordView: true
     })
   },
+  formSubmit: function(e){
+    let value = e.detail.value;
+    if(value.newPassword) {
+      $Toast({
+        content: '密码不能为空!',
+        type: 'warning'
+      });
+    }
+    if (value.newPassword.length < 6) {
+      $Toast({
+        content: '密码需要大于6位!',
+        type: 'warning'
+      });
+    }
+
+  },
   /**
    * 页面的初始数据
    */

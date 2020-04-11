@@ -18,7 +18,7 @@
     <i-cell title="修改密码" bindtap="editPassword"></i-cell>
     <form  bindsubmit="formSubmit">
       <view wx:if="{{passwordView}}">
-        <i-input value="" name="userName" title="新密码" placeholder="请输入密码" maxlength="15"/>
+        <i-input value="" name="newPassword" title="新密码" placeholder="请输入密码" maxlength="15"/>
       <button type="primary" form-type="submit">
           保存
       </button>

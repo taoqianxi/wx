@@ -38,6 +38,13 @@ Page({
       });
       return;
     }
+    if (value.phone != 11) {
+      $Toast({
+        content: '请输入正确电话号码',
+        type: 'warning'
+      });
+      return;
+    }
     wx.showModal({
       title: '提示',
       content: '请确认信息,等待审核',
