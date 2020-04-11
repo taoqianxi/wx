@@ -1,4 +1,4 @@
-// pages/navigation/navigation.js
+// pages/setting/setting.js
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
@@ -22,25 +22,69 @@ Page({
     //     current: detail.key
     // });
   },
+  editPassword: function(){
+    this.setData({
+      passwordView: true
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    current: ''
+    current: 'setting',
+    avatarUrl: './user-unlogin.png',
+    userInfo: {},
+    passwordView: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  onGetUserInfo: function(e) {
+    if (!this.data.logged && e.detail.userInfo) {
+      this.setData({
+        logged: true,
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that=this;
+    /**
+     * 获取用户信息
+     */
+    wx.getUserInfo({
+     success:function(res){
+      console.log(res);
+      var avatarUrl = 'userInfo.avatarUrl';
+      that.setData({
+       [avatarUrl]: res.userInfo.avatarUrl,
+      })
+     }
+    })
   },
 
   /**
@@ -83,5 +127,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  handleClick: function(){
+    wx.setStorageSync('uid','')
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  } 
 })

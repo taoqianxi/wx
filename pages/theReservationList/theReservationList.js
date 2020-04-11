@@ -13,6 +13,10 @@ Page({
       wx.redirectTo({
         url: '/pages/classInfo/classInfo?key=detail.key'
       }) 
+    }else if (detail.key == 'setting') {
+      wx.redirectTo({
+        url: '/pages/setting/setting?key=detail.key'
+      }) 
     }
     //   this.setData({
     //     current: detail.key

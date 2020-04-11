@@ -6,6 +6,7 @@
     "pages/tosignup/tosignup",
     "pages/theReservationList/theReservationList",
     "pages/classInfo/classInfo",
+    "pages/setting/setting",
     "pages/logs/logs"
   ],
   "window": {
