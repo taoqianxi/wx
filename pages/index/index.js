@@ -4,14 +4,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log("监听页面加载" + this.data.id)
+    if(this.data.id){
+      wx.navigateTo({
+        url: '/pages/navigation/navigation'
+      })
+    }
   },
 
   /**
@@ -64,5 +69,11 @@ Page({
   },
   userLogin : function(){
     console.log("用户登录!!")
+    this.setData({
+      id: 12
+    })
+    wx.navigateTo({
+      url: '/pages/navigation/navigation'
+    })
   }
 })

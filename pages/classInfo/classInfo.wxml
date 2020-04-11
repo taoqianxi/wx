@@ -1,6 +1,8 @@
 <!--pages/classInfo/classInfo.wxml-->
-<text>pages/classInfo/classInfo.wxml</text>
-
+<i-card title="小花">
+    <view slot="content"> 班级名称： 向日葵班</view>]
+    <view slot="content"> 年级： 小班</view>
+</i-card>
 
  <i-tab-bar current="{{current}}" color="#f759ab" fixed="true"  bindchange="handleChange" >
       <i-tab-bar-item  key="tosignup" icon="brush" size="45" current-icon="brush_fill" title="报名"></i-tab-bar-item>

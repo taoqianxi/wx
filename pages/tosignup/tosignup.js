@@ -3,15 +3,15 @@ const { $Toast } = require('../../dist/base/index');
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/tosignup/tosignup?key=detail.key'
       }) 
     } else if (detail.key == 'theReservationList') {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/theReservationList/theReservationList?key=detail.key'
       }) 
     } else if (detail.key == 'classInfo') {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/classInfo/classInfo?key=detail.key'
       }) 
     }
