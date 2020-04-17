@@ -1,4 +1,6 @@
 // pages/classInfo/classInfo.js
+const { $Toast } = require('../../dist/base/index');
+import { baseUrl } from '../../utils/request';
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
@@ -26,14 +28,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 'classInfo'
+    current: 'classInfo',
+    list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: baseUrl + 'class/listDivideIntoClasses.do',
+      method: 'post', //请求方式
+      data: {userId: wx.getStorageSync('uid')},
+      success: function(res){
+        console.log("注册成功的回显日志->",res)
+           that.setData({
+            list: res.data.data
+         })
+      },
+      fail: function() {
+        $Toast({
+          content: '请求数据异常!',
+          type: 'warning'
+        });
+      },
+    })
   },
 
   /**

@@ -1,5 +1,7 @@
 const {$Toast} = require('../../dist/base/index');
 
+import { baseUrl } from '../../utils/request';
+
 var app = getApp();
 Page({
   /**
@@ -15,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     const app = getApp()
-    app.globalData.bashUrl = 'http://localhost:8080/BabyBirthRegistration/';
+    app.globalData.bashUrl = baseUrl;
   },
 
   /**
@@ -88,7 +90,7 @@ Page({
     value.type = 2;
     console.log("用户登录!!->",value)
       wx.request({
-        url: getApp().globalData.bashUrl + 'user/patriarchLogin.do',
+        url: baseUrl + 'user/patriarchLogin.do',
         method: 'post', //请求方式
         header: { 
         },
@@ -98,7 +100,7 @@ Page({
           let d = res.data;
           if(d.data.success == true){
              wx.setStorage({
-              data: d.data.id,
+              data: d.data.data.id,
               key: 'uid',
             })
             wx.redirectTo({
@@ -115,7 +117,7 @@ Page({
         
         },
         fail: function() {
-          app.consoleLog("请求数据失败");
+        
         },
       })
 

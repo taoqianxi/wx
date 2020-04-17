@@ -1,5 +1,8 @@
 // pages/registered/registered.js
 const { $Toast } = require('../../dist/base/index');
+
+import { baseUrl } from '../../utils/request';
+
 Page({
 
   /**
@@ -50,11 +53,8 @@ Page({
     console.log('form发生了submit事件，携带数据为：', value)
 
     wx.request({
-      url: getApp().globalData.bashUrl + 'user/register.do',
+      url: baseUrl + 'user/register.do',
       method: 'post', //请求方式
-      header: { 
-        'Content-Type': 'application/json',
-      },
       data: value,
       success: function(res){
         console.log("注册成功的回显日志->",res)
@@ -73,7 +73,7 @@ Page({
             type: 'warning'
           });
         }
-       
+
       },
       fail: function() {
         $Toast({

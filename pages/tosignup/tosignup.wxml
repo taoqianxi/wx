@@ -1,16 +1,15 @@
 <!--pages/tosignup/tosignup.wxml-->
-<!--pages/registered/registered.wxml-->
 <form  bindsubmit="formSubmit">
   <i-panel>
-      <i-input value="" name="userName" title="幼儿姓名" placeholder="幼儿姓名" maxlength="15"/>
+      <i-input value="" name="studentName" title="幼儿姓名" placeholder="幼儿姓名" maxlength="15"/>
     <view class="section" >
          <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
             <view class="picker">
-              <i-input value="{{date}}"  name="birthday" disabled title="出生日期" placeholder="出生日期" maxlength="15"/>
+              <i-input value="{{date}}"  name="dateOfBirth" disabled title="出生日期" placeholder="出生日期" maxlength="15"/>
             </view>
          </picker>
       </view>
-      <i-input value="" name="tName" title="监护人姓名" placeholder="监护人姓名" maxlength="11" />
+      <i-input value="" name="patriarch" title="监护人姓名" placeholder="监护人姓名" maxlength="11" />
       <i-input value="" name="relation" title="与幼儿关系" placeholder="与幼儿关系" maxlength="11" />
       <i-input value="" name="phone" type="number" title="联系电话" placeholder="联系电话" maxlength="11" />
       <view style="display: block;">
@@ -22,9 +21,6 @@
   <button type="primary" form-type="submit">
       提交
   </button>
-  <!-- <i-button bind:click="323243" shape="circle" form-type="submit" type="info">
-      <view class="login-button-text">注册</view>
-  </i-button> -->
 </form>
  <i-toast id="toast" />
 

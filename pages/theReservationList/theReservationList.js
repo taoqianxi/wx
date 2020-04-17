@@ -1,4 +1,6 @@
-// pages/theReservationList/theReservationList.js
+const { $Toast } = require('../../dist/base/index');
+import { baseUrl } from '../../utils/request';
+
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
@@ -18,23 +20,42 @@ Page({
         url: '/pages/setting/setting?key=detail.key'
       }) 
     }
-    //   this.setData({
-    //     current: detail.key
-    // });
+
   },
   /**
    * 页面的初始数据
    */
   data: {
-    current: 'theReservationList'
+    current: 'theReservationList',
+    pageNum:1,
+    pageSize:10,
+    list: []
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
+    var that = this
+    wx.request({
+      url: baseUrl + 'apply/list.do',
+      method: 'post', //请求方式
+      data: {userId: wx.getStorageSync('uid'),pagination:{pageNum:1,pageSize:100}},
+      success: function(res){
+        console.log("注册成功的回显日志->",res)
+           that.setData({
+            list: res.data.data.data
+         })
+      },
+      fail: function() {
+        $Toast({
+          content: '请求数据异常!',
+          type: 'warning'
+        });
+      },
+    })
+    
+  }
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -67,7 +88,24 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this
+    wx.request({
+      url: baseUrl + 'apply/list.do',
+      method: 'post', //请求方式
+      data: {userId: wx.getStorageSync('uid'),pagination:{pageNum:1,pageSize:100}},
+      success: function(res){
+        console.log("注册成功的回显日志->",res)
+           that.setData({
+            list: res.data.data.data
+         })
+      },
+      fail: function() {
+        $Toast({
+          content: '请求数据异常!',
+          type: 'warning'
+        });
+      },
+    })
   },
 
   /**

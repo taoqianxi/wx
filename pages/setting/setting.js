@@ -1,4 +1,7 @@
 // pages/setting/setting.js
+const { $Toast } = require('../../dist/base/index');
+import { baseUrl } from '../../utils/request';
+
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
@@ -24,24 +27,60 @@ Page({
   },
   editPassword: function(){
     this.setData({
-      passwordView: true
+      passwordView : !this.data.passwordView
     })
+
   },
   formSubmit: function(e){
+
     let value = e.detail.value;
-    if(value.newPassword) {
+    value.password = e.detail.value.newPassword;
+    value.id = wx.getStorageSync('uid');
+    console.log(value)
+    if(value.newPassword.length <=0 || value.affirmPassword.length <=0) {
       $Toast({
         content: '密码不能为空!',
         type: 'warning'
       });
+      return
     }
     if (value.newPassword.length < 6) {
       $Toast({
         content: '密码需要大于6位!',
         type: 'warning'
       });
+      return
     }
+    if (value.newPassword != value.affirmPassword) {
+      $Toast({
+        content: '密码不一致!',
+        type: 'warning'
+      });
+      return
+    }
+    wx.request({
+      url: baseUrl + 'user/updatePassWork.do',
+      method: 'post', //请求方式
+      data: value,
+      success: function(res){
+        console.log("修改密码成功->",res)
+        $Toast({
+          content: '修改密码成功!',
+          type: 'warning'
+        });
 
+        wx.setStorageSync('uid','')
+        wx.reLaunch({
+          url: '/pages/index/index'
+        })
+      },
+      fail: function() {
+        $Toast({
+          content: '请求数据异常!',
+          type: 'warning'
+        });
+      },
+    })
   },
   /**
    * 页面的初始数据

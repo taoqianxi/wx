@@ -1,8 +1,10 @@
 <!--pages/classInfo/classInfo.wxml-->
-<i-card title="小花">
-    <view slot="content"> 班级名称： 向日葵班</view>]
-    <view slot="content"> 年级： 小班</view>
-</i-card>
+<view wx:for="{{list}}">
+    <i-card title="学生姓名:  {{item.studentName}}" extra="任课老师: {{item.teacherName}}">
+        <view slot="content"> 班级名称： {{item.className}}</view>]
+        <view slot="content"> 年级： {{item.grade}}</view>
+    </i-card>
+</view>
 
  <i-tab-bar current="{{current}}" color="#f759ab" fixed="true"  bindchange="handleChange" >
       <i-tab-bar-item  key="tosignup" icon="brush" size="45" current-icon="brush_fill" title="报名"></i-tab-bar-item>

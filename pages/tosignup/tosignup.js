@@ -1,5 +1,8 @@
 // pages/tosignup/tosignup.js
 const { $Toast } = require('../../dist/base/index');
+
+import { baseUrl } from '../../utils/request';
+
 Page({
   handleChange ({ detail }) {
     if (detail.key == 'tosignup') {
@@ -19,9 +22,7 @@ Page({
         url: '/pages/setting/setting?key=detail.key'
       }) 
     }
-    //   this.setData({
-    //     current: detail.key
-    // });
+
   },
   bindDateChange(e){
     this.setData({
@@ -30,7 +31,8 @@ Page({
   },
   formSubmit: function (e){
     let value = e.detail.value;
-    if(value.userName && value.birthday && value.tName && value.relation && value.phone) {
+    value.userId = wx.getStorageSync('uid');
+    if(value.studentName && value.dateOfBirth && value.patriarch && value.relation && value.phone) {
     } else {
       $Toast({
         content: '所有都需要填写',
@@ -38,7 +40,7 @@ Page({
       });
       return;
     }
-    if (value.phone != 11) {
+    if (value.phone.length != 11) {
       $Toast({
         content: '请输入正确电话号码',
         type: 'warning'
@@ -51,6 +53,27 @@ Page({
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          wx.request({
+            url: baseUrl + 'apply/insertApply.do',
+            method: 'post', //请求方式
+            data: value,
+            success: function(res){
+              console.log("提交成功的回显日志->",res)
+              $Toast({
+                content: '提交成功!',
+                type: 'warning'
+              });
+              wx.redirectTo({
+                url: '/pages/navigation/navigation'
+              })
+            },
+            fail: function() {
+              $Toast({
+                content: '请求数据异常!',
+                type: 'warning'
+              });
+            },
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
