@@ -4,8 +4,9 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
@@ -22,8 +23,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"bundle": false,
-		"enhance": true
+		"bundle": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",

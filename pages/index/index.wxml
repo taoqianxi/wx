@@ -1,12 +1,15 @@
 <!--index.wxml-->
 <view><image style="width: 400px;height:200px;" src="/icon/index.jpg" mode="widthFix"></image></view>
+<form  bindsubmit="userLogin">
 <i-panel title="基础用法">
-    <i-input value="" title="用户名" autofocus placeholder="用户名" maxlength="20"/>
-    <i-input value="" type="password" title="密码" placeholder="请输入密码" maxlength="20" />
+    <i-input value="{{account}}"  name="account" title="用户名" autofocus placeholder="用户名" maxlength="20"/>
+    <i-input value="{{password}}" name="password"  type="password" title="密码" placeholder="请输入密码" maxlength="20" />
 </i-panel>
 
-<i-button class="" type="primary" bindclick="userLogin" shape="circle" size="small">
-          <view class="login-button-text">登录</view>
-</i-button>
-
+<button type="primary" form-type="submit">
+      登录
+  </button>
+</form>
 <i-cell title="没有账号请先注册" is-link url="/pages/registered/registered"></i-cell>
+
+<i-toast id="toast" />

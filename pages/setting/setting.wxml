@@ -19,7 +19,7 @@
     <form  bindsubmit="formSubmit">
       <view wx:if="{{passwordView}}">
         <i-input value="" name="newPassword" title="新密码" placeholder="请输入密码" maxlength="15"/>
-      <button type="primary" form-type="submit">
+      <button type="primary" form-type="submit" style="display: block; position: absolute;bottom: 0; left: 50%;transform: translate(-50%, -1350%);" size="mini">
           保存
       </button>
      </view>

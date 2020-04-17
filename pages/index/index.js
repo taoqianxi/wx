@@ -1,17 +1,21 @@
-// pages/demo1/demo1.js
+const {$Toast} = require('../../dist/base/index');
+
 var app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    "account":"",
+    "password":""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const app = getApp()
+    app.globalData.bashUrl = 'http://localhost:8080/BabyBirthRegistration/';
   },
 
   /**
@@ -59,21 +63,63 @@ Page({
   onReachBottom: function () {
 
   },
-
+  
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
   },
-  userLogin : function(){
-    console.log("用户登录!!")
-    wx.setStorage({
-      data: '14',
-      key: 'uid',
+  bindAccount: function(e){
+    this.setData({
+      "account":e.detail.value
     })
-    wx.redirectTo({
-      url: '/pages/navigation/navigation'
+  }
+  ,
+  bindPasswork: function(e){
+    this.setData({
+      "password":e.detail.value
     })
+  }
+  ,
+  userLogin : function(e){
+    var that = this;
+    var value = e.detail.value;
+    value.type = 2;
+    console.log("用户登录!!->",value)
+      wx.request({
+        url: getApp().globalData.bashUrl + 'user/patriarchLogin.do',
+        method: 'post', //请求方式
+        header: { 
+        },
+        data: value,
+        success: function(res){
+          console.log("登录成功回显的日志->",res)
+          let d = res.data;
+          if(d.data.success == true){
+             wx.setStorage({
+              data: d.data.id,
+              key: 'uid',
+            })
+            wx.redirectTo({
+            url: '/pages/navigation/navigation'
+          })
+          } else {
+            
+            $Toast({
+              content: '用户名或者密码错误!',
+              type: 'warning'
+            });
+            
+          }
+        
+        },
+        fail: function() {
+          app.consoleLog("请求数据失败");
+        },
+      })
+
+   
+
   }
 })
