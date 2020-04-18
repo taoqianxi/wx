@@ -92,8 +92,6 @@ Page({
       wx.request({
         url: baseUrl + 'user/patriarchLogin.do',
         method: 'post', //请求方式
-        header: { 
-        },
         data: value,
         success: function(res){
           console.log("登录成功回显的日志->",res)
